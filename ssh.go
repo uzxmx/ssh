@@ -49,13 +49,13 @@ type Handler func(Session)
 type SubsystemHandler func(Session)
 
 // PublicKeyHandler is a callback for performing public key authentication.
-type PublicKeyHandler func(ctx Context, key PublicKey) bool
+type PublicKeyHandler func(ctx Context, key PublicKey) AuthResult
 
 // PasswordHandler is a callback for performing password authentication.
-type PasswordHandler func(ctx Context, password string) bool
+type PasswordHandler func(ctx Context, password string) AuthResult
 
 // KeyboardInteractiveHandler is a callback for performing keyboard-interactive authentication.
-type KeyboardInteractiveHandler func(ctx Context, challenger gossh.KeyboardInteractiveChallenge) bool
+type KeyboardInteractiveHandler func(ctx Context, challenger gossh.KeyboardInteractiveChallenge) AuthResult
 
 // PtyCallback is a hook for allowing PTY sessions.
 type PtyCallback func(ctx Context, pty Pty) bool
